@@ -16,10 +16,9 @@ function getHeadingNumber(element: HTMLElement): number {
 
 export function buildNavigationStructure(): Item[] {
   const headings = document.querySelectorAll<HTMLElement>(`[${DATA_PROP}]`);
-
   const navItems: Item[] = [];
   let prevLevel: number = 0;
-  let parentItems: Item[] = [];
+  const aParentItems: Item[] = [];
 
   for (const heading of headings) {
     const currLevel = getHeadingNumber(heading);
@@ -31,32 +30,44 @@ export function buildNavigationStructure(): Item[] {
     };
 
     // new parent : first element
-    if (parentItems.length === 0) {
-      parentItems.push(currItem);
+    if (aParentItems.length === 0) {
       navItems.push(currItem);
       prevLevel = currLevel;
+      aParentItems[currLevel] = currItem;
+      continue;
+    }
+
+    // main level
+    if (currLevel === 2) {
+      aParentItems.splice(currLevel + 1);
+      navItems.push(currItem);
+      prevLevel = currLevel;
+      aParentItems[currLevel] = currItem;
       continue;
     }
 
     // new parent
-    if (currLevel === 2 || currLevel < prevLevel) {
-      const diffLevel = prevLevel - currLevel + 1;
-      parentItems.splice(diffLevel * -1, diffLevel, currItem);
-      navItems.push(currItem);
+    if (currLevel < prevLevel) {
+      aParentItems.splice(currLevel + 1);
+      const parentIndex = aParentItems.findLastIndex(
+        (_, idx) => idx < currLevel
+      );
+      aParentItems[parentIndex].items.push(currItem);
       prevLevel = currLevel;
+      aParentItems[currLevel] = currItem;
       continue;
     }
 
     // same level
     if (currLevel === prevLevel) {
-      parentItems.pop();
+      aParentItems.splice(currLevel);
     }
 
     // new child
-    const lastParent = parentItems[parentItems.length - 1];
-    lastParent.items.push(currItem);
-    parentItems.push(currItem);
+    const parentIndex = aParentItems.findLastIndex((el) => el);
+    aParentItems[parentIndex].items.push(currItem);
     prevLevel = currLevel;
+    aParentItems[currLevel] = currItem;
   }
 
   return navItems;
