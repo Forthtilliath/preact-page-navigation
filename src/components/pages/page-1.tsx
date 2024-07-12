@@ -1,9 +1,19 @@
 import { H2 } from "../layout/h2";
 import { H3 } from "../layout/h3";
 import { Sidebar } from "../layout/sidebar";
-import { nav } from "../lib/data";
+import { useEffect, useState } from "preact/hooks";
+import {
+  buildNavigationStructure,
+  type Item,
+} from "@/lib/buildNavigationStructure";
 
 export default function Page1() {
+  const [nav, setNav] = useState<Item[]>([]);
+
+  useEffect(() => {
+    setNav(buildNavigationStructure());
+  }, []);
+
   return (
     <>
       <article class="space-y-4">
@@ -26,7 +36,17 @@ export default function Page1() {
           maiores nihil ipsa vel voluptatibus! Incidunt fuga mollitia libero
           soluta tempora molestias?
         </p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis similique magnam corporis nostrum enim doloremque fugiat officia nisi ut iste, quaerat omnis doloribus iusto. Soluta quidem laboriosam, provident illum, culpa doloribus quo rem quibusdam minima eos recusandae ratione reiciendis, ad perferendis. Quis, quam laboriosam, nam totam beatae autem aperiam libero officiis, recusandae ut deleniti corrupti provident! Quas, exercitationem incidunt in harum numquam, dolor quod suscipit molestiae aperiam ex nihil provident illo libero quo at! Sapiente dolorem harum molestias?</p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
+          similique magnam corporis nostrum enim doloremque fugiat officia nisi
+          ut iste, quaerat omnis doloribus iusto. Soluta quidem laboriosam,
+          provident illum, culpa doloribus quo rem quibusdam minima eos
+          recusandae ratione reiciendis, ad perferendis. Quis, quam laboriosam,
+          nam totam beatae autem aperiam libero officiis, recusandae ut deleniti
+          corrupti provident! Quas, exercitationem incidunt in harum numquam,
+          dolor quod suscipit molestiae aperiam ex nihil provident illo libero
+          quo at! Sapiente dolorem harum molestias?
+        </p>
 
         <H3>Link</H3>
         <p>

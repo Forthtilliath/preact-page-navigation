@@ -1,7 +1,6 @@
-import { useEffect } from "preact/hooks";
 import { tv } from "tailwind-variants";
-import { type Item } from "../lib/data";
-import { useActiveItem } from "../lib/hooks/useActiveItem";
+import { useActiveItem } from "@/lib/hooks/useActiveItem";
+import { Item } from "@/lib/buildNavigationStructure";
 
 type Props = {
   items: Item[];
@@ -9,7 +8,6 @@ type Props = {
 
 export function Sidebar({ items }: Props) {
   const activeHeading = useActiveItem();
-  useEffect(() => console.log(activeHeading), [activeHeading]);
 
   return (
     <aside
@@ -31,9 +29,9 @@ const navigation = tv({
     level: {
       1: "pl-0",
       2: "pl-4",
-      3: "pl-8",
-      4: "pl-12",
-      5: "pl-16",
+      3: "pl-4",
+      4: "pl-4",
+      5: "pl-4",
     },
   },
   defaultVariants: {
