@@ -14,11 +14,26 @@ function getHeadingNumber(element: HTMLElement): number {
   return parseInt(match[1], 10);
 }
 
+function assertFirstElementIsH2(element: HTMLElement): void {
+  if (element.tagName !== "H2") {
+    throw new Error(`The first element must be an H2`);
+  }
+}
+
+/**
+ * Builds the navigation structure based on the headings in the document.
+ *
+ * @return {Item[]} An array of items representing the navigation structure.
+ */
 export function buildNavigationStructure(): Item[] {
   const headings = document.querySelectorAll<HTMLElement>(`[${DATA_PROP}]`);
+  if (!headings) return [];
+  
+  assertFirstElementIsH2(headings[0]);
+
   const navItems: Item[] = [];
   let prevLevel: number = 0;
-  const aParentItems: Item[] = [];
+  const parentItems: Item[] = [];
 
   for (const heading of headings) {
     const currLevel = getHeadingNumber(heading);
@@ -29,45 +44,37 @@ export function buildNavigationStructure(): Item[] {
       items: [],
     };
 
-    // new parent : first element
-    if (aParentItems.length === 0) {
-      navItems.push(currItem);
-      prevLevel = currLevel;
-      aParentItems[currLevel] = currItem;
-      continue;
-    }
-
     // main level
     if (currLevel === 2) {
-      aParentItems.splice(currLevel + 1);
+      parentItems.splice(currLevel + 1);
       navItems.push(currItem);
       prevLevel = currLevel;
-      aParentItems[currLevel] = currItem;
+      parentItems[currLevel] = currItem;
       continue;
     }
 
     // new parent
     if (currLevel < prevLevel) {
-      aParentItems.splice(currLevel + 1);
-      const parentIndex = aParentItems.findLastIndex(
+      parentItems.splice(currLevel + 1);
+      const parentIndex = parentItems.findLastIndex(
         (_, idx) => idx < currLevel
       );
-      aParentItems[parentIndex].items.push(currItem);
+      parentItems[parentIndex].items.push(currItem);
       prevLevel = currLevel;
-      aParentItems[currLevel] = currItem;
+      parentItems[currLevel] = currItem;
       continue;
     }
 
     // same level
     if (currLevel === prevLevel) {
-      aParentItems.splice(currLevel);
+      parentItems.splice(currLevel);
     }
 
     // new child
-    const parentIndex = aParentItems.findLastIndex((el) => el);
-    aParentItems[parentIndex].items.push(currItem);
+    const parentIndex = parentItems.findLastIndex((el) => el);
+    parentItems[parentIndex].items.push(currItem);
     prevLevel = currLevel;
-    aParentItems[currLevel] = currItem;
+    parentItems[currLevel] = currItem;
   }
 
   return navItems;
