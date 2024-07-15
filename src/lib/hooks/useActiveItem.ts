@@ -1,7 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
 
-export const DATA_PROP = "data-anchor";
-
 export function useActiveItem(elements: HTMLElement[]) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
