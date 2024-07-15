@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "highlight.js": "^11.10.0",
+    "marked": "^13.0.2",
     "preact": "^10.22.0",
     "preact-router": "^4.1.2",
     "tailwind-variants": "^0.2.1",
