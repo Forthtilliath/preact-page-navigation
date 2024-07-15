@@ -1,23 +1,12 @@
-import { H2 } from "../layout/h2";
-import { H3 } from "../layout/h3";
-import { Sidebar } from "../layout/sidebar";
-import { useEffect, useState } from "preact/hooks";
-import {
-  buildNavigationStructure,
-  type Item,
-} from "@/lib/buildNavigationStructure";
-import { H4 } from "../layout/h4";
+import { useNavigation } from "@/lib/hooks/useNavigation";
+import { H2, H3, H4, Sidebar } from "@/components/layout";
 
 export default function Page2() {
-  const [nav, setNav] = useState<Item[]>([]);
-
-  useEffect(() => {
-    setNav(buildNavigationStructure());
-  }, []);
+  const [articleRef, nav] = useNavigation();
 
   return (
     <>
-      <article class="space-y-4">
+      <article class="space-y-4" ref={articleRef}>
         <h1 className="text-3xl font-bold my-8">Page2</h1>
 
         <H2>Installation</H2>

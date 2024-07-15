@@ -7,7 +7,7 @@ type Props = {
 };
 
 export function Sidebar({ items }: Props) {
-  const activeHeading = useActiveItem();
+  const activeHeading = useActiveItem(items);
 
   return (
     <aside

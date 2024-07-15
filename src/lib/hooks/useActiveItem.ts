@@ -1,8 +1,9 @@
 import { useEffect, useState } from "preact/hooks";
+import { Item } from "../buildNavigationStructure";
 
 export const DATA_PROP = "data-anchor";
 
-export function useActiveItem() {
+export function useActiveItem(items: Item[]) {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const elements = document.querySelectorAll(`[${DATA_PROP}]`);

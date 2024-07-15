@@ -25,8 +25,8 @@ function assertFirstElementIsH2(element: HTMLElement): void {
  *
  * @return {Item[]} An array of items representing the navigation structure.
  */
-export function buildNavigationStructure(): Item[] {
-  const headings = document.querySelectorAll<HTMLElement>(`[${DATA_PROP}]`);
+export function buildNavigationStructure(article: HTMLDivElement): Item[] {
+  const headings = article.querySelectorAll<HTMLElement>(`[${DATA_PROP}]`);
   if (!headings) return [];
   
   assertFirstElementIsH2(headings[0]);
