@@ -2,13 +2,11 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { buildNavigationStructure, Item } from "../buildNavigationStructure";
 import { useActiveItem } from "./useActiveItem";
 
-export const DATA_PROP = "data-anchor";
-
-export function useNavigation(dataAnchor = DATA_PROP) {
-  const [nav, setNav] = useState<Item[]>([]);
+export function useNavigation(dataAnchor = "data-anchor") {
+  const [items, setItems] = useState<Item[]>([]);
   const [headings, setHeadings] = useState<HTMLElement[]>([]);
   const ref = useRef<HTMLDivElement>(null);
-  const active = useActiveItem(headings);
+  const activeItem = useActiveItem(headings);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -19,8 +17,8 @@ export function useNavigation(dataAnchor = DATA_PROP) {
   }, []);
 
   useEffect(() => {
-    setNav(buildNavigationStructure(headings));
+    setItems(buildNavigationStructure(headings));
   }, [headings]);
 
-  return [ref, nav, active] as const;
+  return [ref, items, activeItem] as const;
 }
