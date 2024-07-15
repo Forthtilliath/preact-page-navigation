@@ -21,6 +21,7 @@ export default function Home() {
         <h1 class={"text-3xl font-bold my-8"}>
           Explication du fonction de la sidebar de la Page1
         </h1>
+
         <H2>Librairies Utilisées</H2>
         <p>Dans ce projet, nous avons utilisé les librairies suivantes :</p>
         <ul class={"list-disc ml-4"}>
@@ -49,6 +50,7 @@ export default function Home() {
           Ces outils ont été choisis pour leur performance, leur flexibilité et
           leur facilité d&#39;intégration dans un projet Preact.
         </p>
+
         <H2>Structure du composant</H2>
         <Hightlight
           code={`import { useNavigation } from "@/lib/hooks/useNavigation";
@@ -76,6 +78,7 @@ export default function Page1() {
         <H3>Composants H2 et H3</H3>
         <p>Simplification via composants intermédiaires pour les headings.</p>
         <Hightlight code={`<H2>Installation</H2>`} />
+
         <H4>Composant H2</H4>
         <p>
           Génère un ID à partir du titre et ajoute un attribut{" "}
@@ -96,14 +99,16 @@ export function H2({ children }: Props) {
     );
 }`}
         />
-        <H2>
+
+        <H3>
           Custom Hook <code>useNavigation()</code>
-        </H2>
+        </H3>
         <p>
           Gère la navigation. Accepte un paramètre pour personnaliser
           l&#39;attribut observé.
         </p>
-        <H3>Méthodes internes</H3>
+
+        <H4>Méthodes internes</H4>
         <ul>
           <li>
             <code>buildNavigationStructure()</code>: Génère la structure de
@@ -114,7 +119,8 @@ export function H2({ children }: Props) {
             jour l&#39;élément actif.
           </li>
         </ul>
-        <H2>Composant Sidebar</H2>
+
+        <H3>Composant Sidebar</H3>
         <p>
           Génère la liste de navigation récursivement à partir des items
           fournis.
@@ -125,13 +131,26 @@ export function H2({ children }: Props) {
         <p>
           Utilise <code>tailwind-merge</code> pour le style.
         </p>
-        <h1 id="am-liorations-possibles">Améliorations possibles</h1>
+
+        <H2>Améliorations possibles</H2>
         <ul>
           <li>
             Commencer un article avec d&#39;autres éléments que{" "}
             <code>&lt;h2&gt;</code>.
           </li>
         </ul>
+
+        <H2>Code Source</H2>
+        <p>
+          Le code source de ce projet est disponible sur GitHub. Vous pouvez y
+          accéder via le lien suivant : <a href="https://github.com/Forthtilliath/preact-page-navigation" class={"underline hover:text-sky-500"}>
+            GitHub Repository
+          </a>
+        </p>
+        <p>
+          N'hésitez pas à explorer le code, à soumettre des issues ou à
+          contribuer avec des pull requests.
+        </p>
       </article>
 
       <Sidebar items={nav} active={activeHeading} />
