@@ -1,12 +1,9 @@
 import { useEffect, useState } from "preact/hooks";
-import { Item } from "../buildNavigationStructure";
 
 export const DATA_PROP = "data-anchor";
 
-export function useActiveItem(items: Item[]) {
+export function useActiveItem(elements: HTMLElement[]) {
   const [activeId, setActiveId] = useState<string | null>(null);
-
-  const elements = document.querySelectorAll(`[${DATA_PROP}]`);
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -29,7 +26,7 @@ export function useActiveItem(items: Item[]) {
         observer.unobserve(el);
       }
     };
-  }, []);
+  }, [elements]);
 
   return activeId;
 }

@@ -2,7 +2,7 @@ import { useNavigation } from "@/lib/hooks/useNavigation";
 import { H2, H3, Sidebar } from "@/components/layout";
 
 export default function Page1() {
-  const [articleRef, nav] = useNavigation();
+  const [articleRef, nav, activeHeading] = useNavigation();
 
   return (
     <>
@@ -252,7 +252,7 @@ export default function Page1() {
         </p>
       </article>
 
-      <Sidebar items={nav} />
+      <Sidebar items={nav} active={activeHeading} />
     </>
   );
 }

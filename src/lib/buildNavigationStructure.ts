@@ -1,5 +1,3 @@
-import { DATA_PROP } from "./hooks/useActiveItem";
-
 export type Item = {
   name: string;
   href: string;
@@ -25,10 +23,8 @@ function assertFirstElementIsH2(element: HTMLElement): void {
  *
  * @return {Item[]} An array of items representing the navigation structure.
  */
-export function buildNavigationStructure(article: HTMLDivElement): Item[] {
-  const headings = article.querySelectorAll<HTMLElement>(`[${DATA_PROP}]`);
-  if (!headings) return [];
-  
+export function buildNavigationStructure(headings: HTMLElement[]): Item[] {
+  if(headings.length === 0) return [];
   assertFirstElementIsH2(headings[0]);
 
   const navItems: Item[] = [];

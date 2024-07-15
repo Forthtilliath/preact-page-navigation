@@ -1,14 +1,12 @@
 import { tv } from "tailwind-variants";
-import { useActiveItem } from "@/lib/hooks/useActiveItem";
 import { Item } from "@/lib/buildNavigationStructure";
 
 type Props = {
   items: Item[];
+  active: string | null;
 };
 
-export function Sidebar({ items }: Props) {
-  const activeHeading = useActiveItem(items);
-
+export function Sidebar({ items, active }: Props) {
   return (
     <aside
       class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12"
@@ -17,7 +15,7 @@ export function Sidebar({ items }: Props) {
       <div class="space-y-2">
         <p class="font-medium">On This Page</p>
 
-        <Navigation items={items} level={1} active={activeHeading} />
+        <Navigation items={items} level={1} active={active} />
       </div>
     </aside>
   );
