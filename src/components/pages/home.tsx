@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <article class="space-y-4" ref={articleRef}>
         <h1 class={"text-3xl font-bold my-8"}>
-          Explication du fonction de la sidebar de la Page1
+          Explication du fonctionnement de la sidebar de la Page1
         </h1>
 
         <H2>Librairies Utilisées</H2>
