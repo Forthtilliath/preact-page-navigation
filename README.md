@@ -1,6 +1,6 @@
 # 📑 Preact TOC
 
-![License](https://img.shields.io/github/license/forthtilliath/preact-toc?style=for-the-badge) [![npm](https://img.shields.io/npm/v/%40forthtilliath%2Fpreact-toc?style=for-the-badge&color=cb3837&logo=npm)](https://www.npmjs.com/package/@forthtilliath/preact-toc) [![Preact](https://img.shields.io/badge/Preact-673AB8?style=for-the-badge&logo=preact&logoColor=white)](https://preactjs.com/) ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white&style=for-the-badge)
+![License](https://img.shields.io/github/license/forthtilliath/preact-toc?style=for-the-badge) [![npm](https://img.shields.io/npm/v/%40forthtilliath%2Fpreact-toc?style=for-the-badge&color=cb3837&logo=npm)](https://www.npmjs.com/package/@forthtilliath/preact-toc) [![Preact](https://img.shields.io/badge/Preact-673AB8?style=for-the-badge&logo=preact&logoColor=white)](https://preactjs.com/) ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white&style=for-the-badge) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 > Un hook headless pour Preact qui génère automatiquement un sommaire ("On this page") à partir des titres de ta page, avec mise en surbrillance de la section active au scroll (scrollspy) — comme sur la documentation de Stripe, Tailwind ou shadcn/ui.
 
@@ -62,7 +62,7 @@ function Article() {
 ## Ce que contient ce repo
 
 - **`lib/`** — le code source du package publié sur npm (headless, sans dépendance de style).
-- **`src/`** — une application de démo Preact + Tailwind CSS montrant une intégration complète avec une sidebar stylée, déployée sur Vercel.
+- **`src/`** — une application de démo Preact + Tailwind CSS v4 montrant une intégration complète avec une sidebar stylée, déployée sur Vercel.
 
 ## Développement
 
