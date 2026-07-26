@@ -1,9 +1,9 @@
 export function Header() {
   return (
-    <header class="text-gray-600 dark:text-slate-400 body-font">
+    <header class="text-slate-400 body-font">
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a
-          class="flex title-font font-medium items-center text-gray-900 dark:text-slate-100 mb-4 md:mb-0"
+          class="flex title-font font-medium items-center text-slate-100 mb-4 md:mb-0"
           href="/"
         >
           <svg
@@ -21,10 +21,10 @@ export function Header() {
           <span class="ml-3 text-xl">Preact TOC</span>
         </a>
         <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 hover:text-gray-900 hover:dark:text-slate-300" href="/page-1">
+          <a class="mr-5 hover:text-slate-300" href="/page-1">
             Page 1
           </a>
-          <a class="mr-5 hover:text-gray-900 hover:dark:text-slate-300" href="/page-2">
+          <a class="mr-5 hover:text-slate-300" href="/page-2">
             Page 2
           </a>
         </nav>
