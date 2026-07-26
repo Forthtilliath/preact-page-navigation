@@ -1,4 +1,10 @@
-# Explication du fonction de la sidebar de la Page1
+# Page Navigation
+
+![License](https://img.shields.io/github/license/forthtilliath/preact-page-navigation?style=for-the-badge) [![Preact](https://img.shields.io/badge/Preact-673AB8?style=for-the-badge&logo=preact&logoColor=white)](https://preactjs.com/) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![TypeScript](https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white&style=for-the-badge)
+
+> Système de navigation dynamique avec Preact et Tailwind CSS.
+
+## Explication du fonction de la sidebar de la Page1
 
 ## Librairies Utilisées
 
