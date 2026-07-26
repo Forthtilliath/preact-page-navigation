@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@pkg": path.resolve(__dirname, "./lib/index.ts"),
     },
   },
   define: {

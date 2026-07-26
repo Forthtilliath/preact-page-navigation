@@ -1,4 +1,8 @@
-type Props = React.PropsWithChildren<{}>;
+import type { ComponentChildren } from "preact";
+
+type Props = {
+  children?: ComponentChildren;
+};
 
 export function H2({ children }: Props) {
   if (!children) return null;
@@ -7,7 +11,7 @@ export function H2({ children }: Props) {
 
   return (
     <h2
-      className="mt-12 mb-6 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0"
+      class="mt-12 mb-6 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0"
       id={id}
       data-anchor
     >

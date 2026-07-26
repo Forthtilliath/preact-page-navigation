@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
-import { Item } from "@/lib/buildNavigationStructure";
+import type { Item } from "@pkg";
 
 type Props = {
   items: Item[];

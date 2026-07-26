@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "preact/hooks";
-import { buildNavigationStructure, Item } from "../buildNavigationStructure";
+import { buildNavigationStructure, type Item } from "./buildNavigationStructure";
 import { useActiveItem } from "./useActiveItem";
 
 export function useNavigation(dataAnchor = "data-anchor") {

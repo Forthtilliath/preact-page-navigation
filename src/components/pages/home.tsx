@@ -3,8 +3,8 @@ import { useEffect } from "preact/hooks";
 import { marked } from "marked";
 import "highlight.js/styles/github-dark.min.css";
 import typescript from "highlight.js/lib/languages/typescript";
-import { useNavigation } from "@/lib/hooks/useNavigation";
-import { H2, H3, H4, Sidebar } from "@/components/layout";
+import { useNavigation, H2, H3, H4 } from "@pkg";
+import { Sidebar } from "@/components/layout";
 
 hljs.registerLanguage("typescript", typescript);
 
@@ -53,8 +53,8 @@ export default function Home() {
 
         <H2>Structure du composant</H2>
         <Hightlight
-          code={`import { useNavigation } from "@/lib/hooks/useNavigation";
-import { H2, H3, Sidebar } from "@/components/layout";
+          code={`import { useNavigation, H2, H3 } from "@forthtilliath/preact-toc";
+import { Sidebar } from "@/components/layout";
 
 export default function Page1() {
     const [articleRef, nav, activeHeading] = useNavigation();
@@ -85,7 +85,7 @@ export default function Page1() {
           <code>data-anchor</code>.
         </p>
         <Hightlight
-          code={`type Props = React.PropsWithChildren<{}>;
+          code={`type Props = { children?: ComponentChildren };
 
 export function H2({ children }: Props) {
     if (!children) return null;
@@ -143,7 +143,7 @@ export function H2({ children }: Props) {
         <H2>Code Source</H2>
         <p>
           Le code source de ce projet est disponible sur GitHub. Vous pouvez y
-          accéder via le lien suivant : <a href="https://github.com/Forthtilliath/preact-page-navigation" class={"underline hover:text-sky-500"}>
+          accéder via le lien suivant : <a href="https://github.com/Forthtilliath/preact-toc" class={"underline hover:text-sky-500"}>
             GitHub Repository
           </a>
         </p>
