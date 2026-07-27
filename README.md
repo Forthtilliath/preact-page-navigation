@@ -4,6 +4,7 @@
 
 > Un hook headless pour Preact qui génère automatiquement un sommaire ("On this page") à partir des titres de ta page, avec mise en surbrillance de la section active au scroll (scrollspy) — comme sur la documentation de Stripe, Tailwind ou shadcn/ui.
 
+**📦 Disponible sur npm :** [`@forthtilliath/preact-toc`](https://www.npmjs.com/package/@forthtilliath/preact-toc)
 **🔗 Démo :** [preact-page-navigation.vercel.app](https://preact-page-navigation.vercel.app/page-1)
 
 ![Sommaire généré automatiquement, avec la section "Installation" active en surbrillance pendant le scroll](docs/page-1.webp)
